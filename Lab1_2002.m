@@ -20,3 +20,5 @@ YS = 27.6*10^6; % [PA] Yield Strength of Material
 Radius_Balloon = (2*YS*thickness)/(Gage_Pressure*FS)
 
 Volume_Balloon = (4*pi*Radius_Balloon^3)/3
+
+Volume = 0;
