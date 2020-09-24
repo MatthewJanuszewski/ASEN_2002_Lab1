@@ -37,3 +37,7 @@ T_Night = (alpha_eb*q_earth/(4*epsilon_b*sigma_SB))^0.25
 T_Day = (((alpha_SB*q_sun)+(alpha_eb*q_earth))/(4*epsilon_b*sigma_SB))^0.25
 
 Volume_Day = T_Day*Volume_Night/T_Night
+
+[T, ~, P, rho] = atmoscoesa(24000)
+
+[T, ~, P, rho] = atmoscoesa(26000)
