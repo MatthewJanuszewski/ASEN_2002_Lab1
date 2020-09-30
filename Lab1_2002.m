@@ -5,14 +5,20 @@ clc
 clear
 close all
 %% Constants
+% Flight properties
 mass_payload = 500; % [kg]
-altitude = 25000; %[m] (+/- 1000m)
+altitude = 25000; %[m]
+
+% Balloon Material Properties 
+% (average of values given on matweb for polyester film)
+density_material = 1255; % [kg/m^3]
 FS = 1.5; % Factor of Safety
-Gage_Pressure = 10; % [Pa] (diffence of pressure of balloon and atmosphere
-R = 8.314; % [Nm/kmol] Universal Gas Constant
-thickness = 2.54*10^-6; % [m] thickness of balloon material
-density_material = 0;
-YS = 27.6*10^6; % [Pa] Yield Strength of Material
+YS = 27.6*10^6; % [Pa]
+
+
+% Gas properties
+gage_pressure = 10; % [Pa]
+R = 8.314; % [Nm/kmol]
 molar_mass_helium = 4.0026e-03; % [kg/mol]
 
 %% Calculate atmospheric conditions based on the 1976 standard atmosphere at 25km
@@ -22,7 +28,18 @@ molar_mass_helium = 4.0026e-03; % [kg/mol]
 volume_helium = mass_payload/density_25km; % [m^3]
 moles_helium = (pressure_25km * volume_helium) / (R * temp_25km); % [mol]
 mass_helium = moles_helium * molar_mass_helium; % [kg]
+density_helium = mass_helium/volume_helium; % [kg/m^3]
 
 %% Find radius of balloon
-radius = nthroot(((3/(4*pi))*volume_helium), 3);
+radius = nthroot((mass_payload/((((4*pi)/3)*density_25km)-(((4*pi)/3)*density_helium)-(4*pi*density_material*((gage_pressure*FS)/(2*YS))))), 3); % [m]
+
+
+
+
+
+
+
+
+
+
 
