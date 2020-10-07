@@ -54,3 +54,7 @@ V_night = 4*pi*(r_Night^3)/3 % [m^3]
 r_Day = (mass_payload/((4*pi*rho_25000/3)-(4*pi*rho_Day/3)-(density_material*4*pi*Gage_Pressure*FS/(2*YS))))^(1/3) % [m]
 
 V_Day = 4*pi*(r_Day^3)/3 % [m^3]
+
+mass_Night = (V_night*rho_Night)
+
+mass_Day = (V_Day*rho_Day)
