@@ -1,6 +1,5 @@
 % ASEN 2002 Thermodynamics Design Laboratory Assignment: Atmospheric
 % Satellites
-
 clc
 clear
 close all
@@ -28,7 +27,7 @@ night_temp = 179.7945;
 [temp_25km, speed_of_sound_25km, pressure_25km, density_25km] = atmoscoesa(altitude, 'None'); % [k, m/s, Pa, kg/m^3]
 
 %% Calculate the density of helium at 25km conditions
-density_helium = (pressure_25km + 10)/(R_helium * day_temp); % [kg/m^3]
+density_helium = (pressure_25km + 10)/(R_helium * night_temp); % [kg/m^3]
 
 %% Find radius of balloon
 radius = nthroot((mass_payload/((((4*pi)/3)*density_25km)-(((4*pi)/3)*density_helium)-(4*pi*density_material*((gage_pressure*FS)/(2*YS))))), 3); % [m]
