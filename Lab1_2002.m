@@ -43,7 +43,7 @@ T_Day = (((alpha_SB*q_sun)+(alpha_eb*q_earth))/(4*epsilon_b*sigma_SB))^0.25
 
 rho_Night = (P_25000 + Gage_Pressure)/(R_helium*T_Night) % [kg/m^3]
 
-rho_Day = P_25000/(R_helium*T_Day) % [kg/m^3]
+rho_Day = (P_25000 + Gage_Pressure)/(R_helium*T_Day) % [kg/m^3]
 
 rho_air = ((rho_Night*R_helium*T_Night)/(R_air*T_25000))
 
