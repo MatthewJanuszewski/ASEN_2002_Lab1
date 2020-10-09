@@ -48,23 +48,20 @@ radius_night = nthroot((mass_payload/((((4*pi)/3)*density_25km)-(((4*pi)/3)...
 mass_material = (4*pi*density_material*gage_pressure*FS*(radius_night^3))/(2*YS); % [kg]
 
 %% Calculate # of moles  and mass of helium present at night
-volume_night = (4/3)*pi*radius_night^3; % [m^3]
-moles_night = ((pressure_25km + gage_pressure)*volume_night)/(R*temp_night); % [mol]
-mass_helium_night = moles_night * molar_mass_helium; % [kg]
+volume_helium_night = (4/3)*pi*radius_night^3; % [m^3]
+moles_helium_night = ((pressure_25km + gage_pressure)*volume_helium_night)/(R*temp_night); % [mol]
+mass_helium_night = moles_helium_night * molar_mass_helium; % [kg]
 
-%% Calcualte the volume of the helium at the daytime temperature
+%% Calculate the volume of the helium at the daytime temperature
 % Note that pressure and # of moles remains constant as temperature
 % increases, thus volume must increase. We'll vent gas later
+volume_helium_day = (moles_helium_night*R*temp_day)/(pressure_25km + gage_pressure);
 
+%% Calculate how much helium we need to vent
+volume_delta = volume_helium_day - volume_helium_night;
+moles_delta = ((pressure_25km + gage_pressure)*volume_delta)/(R*temp_day);
+mass_delta = moles_delta*molar_mass_helium;
 
-
-
-calculated_air_density_night = (density_helium_night*volume_night + ((4*pi*density_material*gage_pressure*FS*radius_night^2)/(2*YS)) + mass_payload)/volume_night
-calculated_air_density_day = (density_helium_day*volume_day + ((4*pi*density_material*gage_pressure*FS*radius_day^2)/(2*YS)) + mass_payload)/volume_day
-
-
-
-
-
-
+%% Calculate final (daytime) mass of helium
+mass_helium_day = mass_helium_night-mass_delta;
 
