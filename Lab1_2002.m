@@ -77,7 +77,7 @@ fprintf(['Extent of the helium gas at night:\n',...
 
 %% Calculate how much helium we need to vent
 mass_helium_day = (mass_payload+mass_material)/((density_25km/density_helium_day)-1);
-mass_delta = mass_helium_night - mass_helium_day;
+mass_delta = mass_helium_day - mass_helium_night;
 fprintf(['Mass of daytime balloon after venting:\n',...
     'mass_helium_day: %.3f kg, mass_delta: %.3f kg\n\n'],...
     mass_helium_day, mass_delta);
@@ -85,8 +85,8 @@ fprintf(['Mass of daytime balloon after venting:\n',...
 
 %% Calculate the volume of the daytime balloon
 volume_helium_day = mass_helium_day/density_helium_day;
-volume_delta = volume_helium_night - volume_helium_day;
+volume_delta = volume_helium_day - volume_helium_night;
 fprintf(['Volume of daytime balloon after venting:\n',...
     'volume_helium_day: %.3f m^3, volume_delta: %.3f m^3\n\n'],...
-    volume_helium_day, volume_helium_night);
+    volume_helium_day, volume_delta);
 
