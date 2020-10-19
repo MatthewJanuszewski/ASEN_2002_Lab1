@@ -17,10 +17,10 @@ FS = 1.5; % Factor of Safety
 YS = 27.6*10^6; % [Pa]
 
 % Gas properties
-gage_pressure = 10;      % [Pa]
-R = 8.314;               % [Nm/kmol]
+gage_pressure = 10;      % [Pa] 
+R = 8.314;               % [Nm/kmol] Universal gas constant
 molar_mass_helium = 4.0026e-03; % [kg/mol]
-R_helium = 2077.1;       % [J/kgK]
+R_helium = 2077.1;       % [J/kgK] Specific gas constant of helium
 
 % Radiation Constants
 sigmaSB = 5.670*(10^-8); % [J/(K^4m^2s)] - Stephan Boltzman constant
@@ -78,15 +78,15 @@ fprintf(['Extent of the helium gas at night:\n',...
 %% Calculate how much helium we need to vent
 mass_helium_day = (mass_payload+mass_material)/((density_25km/density_helium_day)-1);
 mass_delta = mass_helium_day - mass_helium_night;
-fprintf(['Mass of daytime balloon after venting:\n',...
+fprintf(['Venting requirements:\n',...
     'mass_helium_day: %.3f kg, mass_delta: %.3f kg\n\n'],...
     mass_helium_day, mass_delta);
-
 
 %% Calculate the volume of the daytime balloon
 volume_helium_day = mass_helium_day/density_helium_day;
 volume_delta = volume_helium_day - volume_helium_night;
-fprintf(['Volume of daytime balloon after venting:\n',...
-    'volume_helium_day: %.3f m^3, volume_delta: %.3f m^3\n\n'],...
-    volume_helium_day, volume_delta);
+radius_day = (3*(volume_helium_day/(4*pi)))^(1/3);
+fprintf(['Extent of the balloon system durring the day:\n',...
+    'volume_helium_day: %.3f m^3, volume_delta: %.3f kg, radius_day %.3f \n\n'],...
+    volume_helium_day, volume_delta, radius_day);
 
