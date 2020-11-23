@@ -1,4 +1,5 @@
-% Alternate Read-in
+% ASEN 2002 Lab 2 Wind Tunnel
+% Section 2: Measurement of Boundary Layer
 
 clc
 clear all
@@ -29,8 +30,8 @@ rho = (Port_1_P_atm/(R*Port_1_T_atm)); % density [kg/m^3]
 Port_1_Aux_Diff_Pressure = Port_1(:,4); % [Pa]
 Port_1_Velocity_Probe = sqrt(2.*Port_1_Aux_Diff_Pressure/rho); % [m/s]
 Port_1_Free_Stream_Pressure = mean(Port_1(11001:12000,3)); % [Pa]
-Port_1_Free_Stream_Velocity = sqrt(2*Port_1_Free_Stream_Pressure/rho); % [m/s]
-Port_1_Boundary_Layer_Velocity = 0.95*Port_1_Free_Stream_Velocity; % [m/s]
+Free_Stream_Velocity(1) = sqrt(2*Port_1_Free_Stream_Pressure/rho); % [m/s]
+Port_1_Boundary_Layer_Velocity = 0.95*Free_Stream_Velocity(1); % [m/s]
 Port_1_y_axis = abs(Port_1(:,6)); % vertical height[mm]
 
 x = (Port_1_Velocity_Probe > Port_1_Boundary_Layer_Velocity);
@@ -87,8 +88,8 @@ rho = (Port_2_P_atm/(R*Port_2_T_atm)); % density [kg/m^3]
 Port_2_Aux_Diff_Pressure = Port_2(:,4); % [Pa]
 Port_2_Velocity_Probe = sqrt(2.*Port_2_Aux_Diff_Pressure/rho); % [m/s]
 Port_2_Free_Stream_Pressure = mean(Port_2(11001:12000,3)); % [Pa]
-Port_2_Free_Stream_Velocity = sqrt(2*Port_2_Free_Stream_Pressure/rho); % [m/s]
-Port_2_Boundary_Layer_Velocity = 0.95*Port_2_Free_Stream_Velocity; % [m/s]
+Free_Stream_Velocity(2) = sqrt(2*Port_2_Free_Stream_Pressure/rho); % [m/s]
+Port_2_Boundary_Layer_Velocity = 0.95*Free_Stream_Velocity(2); % [m/s]
 Port_2_y_axis = abs(Port_2(:,6)); % vertical height[mm]
 
 x = (Port_2_Velocity_Probe > Port_2_Boundary_Layer_Velocity);
@@ -145,8 +146,8 @@ rho = (Port_3_P_atm/(R*Port_3_T_atm)); % density [kg/m^3]
 Port_3_Aux_Diff_Pressure = Port_3(:,4); % [Pa]
 Port_3_Velocity_Probe = sqrt(2.*Port_3_Aux_Diff_Pressure/rho); % [m/s]
 Port_3_Free_Stream_Pressure = mean(Port_3(11001:12000,3)); % [Pa]
-Port_3_Free_Stream_Velocity = sqrt(2*Port_3_Free_Stream_Pressure/rho); % [m/s]
-Port_3_Boundary_Layer_Velocity = 0.95*Port_3_Free_Stream_Velocity; % [m/s]
+Free_Stream_Velocity(3) = sqrt(2*Port_3_Free_Stream_Pressure/rho); % [m/s]
+Port_3_Boundary_Layer_Velocity = 0.95*Free_Stream_Velocity(3); % [m/s]
 Port_3_y_axis = abs(Port_3(:,6)); % vertical height[mm]
 
 x = (Port_3_Velocity_Probe > Port_3_Boundary_Layer_Velocity);
@@ -203,8 +204,8 @@ rho = (Port_4_P_atm/(R*Port_4_T_atm)); % density [kg/m^3]
 Port_4_Aux_Diff_Pressure = Port_4(:,4); % [Pa]
 Port_4_Velocity_Probe = sqrt(2.*Port_4_Aux_Diff_Pressure/rho); % [m/s]
 Port_4_Free_Stream_Pressure = mean(Port_4(11001:12000,3)); % [Pa]
-Port_4_Free_Stream_Velocity = sqrt(2*Port_4_Free_Stream_Pressure/rho); % [m/s]
-Port_4_Boundary_Layer_Velocity = 0.95*Port_4_Free_Stream_Velocity; % [m/s]
+Free_Stream_Velocity(4) = sqrt(2*Port_4_Free_Stream_Pressure/rho); % [m/s]
+Port_4_Boundary_Layer_Velocity = 0.95*Free_Stream_Velocity(4); % [m/s]
 Port_4_y_axis = abs(Port_4(:,6)); % vertical height[mm]
 
 x = (Port_4_Velocity_Probe > Port_4_Boundary_Layer_Velocity);
@@ -261,8 +262,8 @@ rho = (Port_5_P_atm/(R*Port_5_T_atm)); % density [kg/m^3]
 Port_5_Aux_Diff_Pressure = Port_5(:,4); % [Pa]
 Port_5_Velocity_Probe = sqrt(2.*Port_5_Aux_Diff_Pressure/rho); % [m/s]
 Port_5_Free_Stream_Pressure = mean(Port_5(11001:12000,3)); % [Pa]
-Port_5_Free_Stream_Velocity = sqrt(2*Port_5_Free_Stream_Pressure/rho); % [m/s]
-Port_5_Boundary_Layer_Velocity = 0.95*Port_5_Free_Stream_Velocity; % [m/s]
+Free_Stream_Velocity(5) = sqrt(2*Port_5_Free_Stream_Pressure/rho); % [m/s]
+Port_5_Boundary_Layer_Velocity = 0.95*Free_Stream_Velocity(5); % [m/s]
 Port_5_y_axis = abs(Port_5(:,6)); % vertical height[mm]
 
 x = (Port_5_Velocity_Probe > Port_5_Boundary_Layer_Velocity);
@@ -319,8 +320,8 @@ rho = (Port_6_P_atm/(R*Port_6_T_atm)); % density [kg/m^3]
 Port_6_Aux_Diff_Pressure = Port_6(:,4); % [Pa]
 Port_6_Velocity_Probe = sqrt(2.*Port_6_Aux_Diff_Pressure/rho); % [m/s]
 Port_6_Free_Stream_Pressure = mean(Port_6(11001:12000,3)); % [Pa]
-Port_6_Free_Stream_Velocity = sqrt(2*Port_6_Free_Stream_Pressure/rho); % [m/s]
-Port_6_Boundary_Layer_Velocity = 0.95*Port_6_Free_Stream_Velocity; % [m/s]
+Free_Stream_Velocity(6) = sqrt(2*Port_6_Free_Stream_Pressure/rho); % [m/s]
+Port_6_Boundary_Layer_Velocity = 0.95*Free_Stream_Velocity(6); % [m/s]
 Port_6_y_axis = abs(Port_6(:,6)); % vertical height[mm]
 
 x = (Port_6_Velocity_Probe > Port_6_Boundary_Layer_Velocity);
@@ -377,8 +378,8 @@ rho = (Port_7_P_atm/(R*Port_7_T_atm)); % density [kg/m^3]
 Port_7_Aux_Diff_Pressure = Port_7(:,4); % [Pa]
 Port_7_Velocity_Probe = sqrt(2.*Port_7_Aux_Diff_Pressure/rho); % [m/s]
 Port_7_Free_Stream_Pressure = mean(Port_7(11001:12000,3)); % [Pa]
-Port_7_Free_Stream_Velocity = sqrt(2*Port_7_Free_Stream_Pressure/rho); % [m/s]
-Port_7_Boundary_Layer_Velocity = 0.95*Port_7_Free_Stream_Velocity; % [m/s]
+Free_Stream_Velocity(7) = sqrt(2*Port_7_Free_Stream_Pressure/rho); % [m/s]
+Port_7_Boundary_Layer_Velocity = 0.95*Free_Stream_Velocity(7); % [m/s]
 Port_7_y_axis = abs(Port_7(:,6)); % vertical height[mm]
 
 x = (Port_7_Velocity_Probe > Port_7_Boundary_Layer_Velocity);
@@ -435,8 +436,8 @@ rho = (Port_8_P_atm/(R*Port_8_T_atm)); % density [kg/m^3]
 Port_8_Aux_Diff_Pressure = Port_8(:,4); % [Pa]
 Port_8_Velocity_Probe = sqrt(2.*Port_8_Aux_Diff_Pressure/rho); % [m/s]
 Port_8_Free_Stream_Pressure = mean(Port_8(11001:12000,3)); % [Pa]
-Port_8_Free_Stream_Velocity = sqrt(2*Port_8_Free_Stream_Pressure/rho); % [m/s]
-Port_8_Boundary_Layer_Velocity = 0.95*Port_8_Free_Stream_Velocity; % [m/s]
+Free_Stream_Velocity(8) = sqrt(2*Port_8_Free_Stream_Pressure/rho); % [m/s]
+Port_8_Boundary_Layer_Velocity = 0.95*Free_Stream_Velocity(8); % [m/s]
 Port_8_y_axis = abs(Port_8(:,6)); % vertical height[mm]
 
 x = (Port_8_Velocity_Probe > Port_8_Boundary_Layer_Velocity);
@@ -493,8 +494,8 @@ rho = (Port_9_P_atm/(R*Port_9_T_atm)); % density [kg/m^3]
 Port_9_Aux_Diff_Pressure = Port_9(:,4); % [Pa]
 Port_9_Velocity_Probe = sqrt(2.*Port_9_Aux_Diff_Pressure/rho); % [m/s]
 Port_9_Free_Stream_Pressure = mean(Port_9(11001:12000,3)); % [Pa]
-Port_9_Free_Stream_Velocity = sqrt(2*Port_9_Free_Stream_Pressure/rho); % [m/s]
-Port_9_Boundary_Layer_Velocity = 0.95*Port_9_Free_Stream_Velocity; % [m/s]
+Free_Stream_Velocity(9) = sqrt(2*Port_9_Free_Stream_Pressure/rho); % [m/s]
+Port_9_Boundary_Layer_Velocity = 0.95*Free_Stream_Velocity(9); % [m/s]
 Port_9_y_axis = abs(Port_9(:,6)); % vertical height[mm]
 
 x = (Port_9_Velocity_Probe > Port_9_Boundary_Layer_Velocity);
@@ -551,8 +552,8 @@ rho = (Port_10_P_atm/(R*Port_10_T_atm)); % density [kg/m^3]
 Port_10_Aux_Diff_Pressure = Port_10(:,4); % [Pa]
 Port_10_Velocity_Probe = sqrt(2.*Port_10_Aux_Diff_Pressure/rho); % [m/s]
 Port_10_Free_Stream_Pressure = mean(Port_10(11001:12000,3)); % [Pa]
-Port_10_Free_Stream_Velocity = sqrt(2*Port_10_Free_Stream_Pressure/rho); % [m/s]
-Port_10_Boundary_Layer_Velocity = 0.95*Port_10_Free_Stream_Velocity; % [m/s]
+Free_Stream_Velocity(10) = sqrt(2*Port_10_Free_Stream_Pressure/rho); % [m/s]
+Port_10_Boundary_Layer_Velocity = 0.95*Free_Stream_Velocity(10); % [m/s]
 Port_10_y_axis = abs(Port_10(:,6)); % vertical height[mm]
 
 x = (Port_10_Velocity_Probe > Port_10_Boundary_Layer_Velocity);
@@ -609,8 +610,8 @@ rho = (Port_11_P_atm/(R*Port_11_T_atm)); % density [kg/m^3]
 Port_11_Aux_Diff_Pressure = Port_11(:,4); % [Pa]
 Port_11_Velocity_Probe = sqrt(2.*Port_11_Aux_Diff_Pressure/rho); % [m/s]
 Port_11_Free_Stream_Pressure = mean(Port_11(11001:12000,3)); % [Pa]
-Port_11_Free_Stream_Velocity = sqrt(2*Port_11_Free_Stream_Pressure/rho); % [m/s]
-Port_11_Boundary_Layer_Velocity = 0.95*Port_11_Free_Stream_Velocity; % [m/s]
+Free_Stream_Velocity(11) = sqrt(2*Port_11_Free_Stream_Pressure/rho); % [m/s]
+Port_11_Boundary_Layer_Velocity = 0.95*Free_Stream_Velocity(11); % [m/s]
 Port_11_y_axis = abs(Port_11(:,6)); % vertical height[mm]
 
 x = (Port_11_Velocity_Probe > Port_11_Boundary_Layer_Velocity);
@@ -642,5 +643,21 @@ title('Port 11')
 xlabel('Velocity [m/s]')
 ylabel('Height [mm]')
 
+% laminar and turbulent boundary layer heights
+x = [229.87 254.762 279.654 304.546 329.438 354.33 379.222 404.114 429.006 453.898 478.79]; % Distance from test section entrance to each port [mm]
+
+for i = 1:11
+    Rex(i) = (rho*Free_Stream_Velocity(i)*(x(i)/1000)/(1.7894*(10^-5))); % Calculate Rex for each port
+delta_laminar(i) = 5.2*(x(i))/(sqrt(Rex(i))); % height of laminar flow for each port
+delta_turbulent(i) = 0.37*(x(i))/(Rex(i)^0.2); % height of turbulent flow for each port
+end
+
 f12 = figure;
+plot(delta_turbulent)
+hold on
 plot(Boundary_Layer_Height)
+plot(delta_laminar)
+title('Boundary Layer Height')
+xlabel('Port number')
+ylabel('Height [mm]')
+legend('Boundary Layer Height for Turbulent Flow','Actual Boundary Layer Height','Boundary Layer Height for Laminar Flow')

@@ -1,5 +1,5 @@
 % ASEN 2002 Lab 2 Wind Tunnel
-% Nick Bottieri
+% Section 1: Measurement of Airspeed
 
 % Housekeeping
 clc
