@@ -93,7 +93,8 @@ ABCD_Velocity_1 = sqrt(2.*ABCD_Airspeed_Diff_Pressure*R.*ABCD_Temp_atm./ABCD_Pre
 % plot voltage vs. velocity for pitot-static + Airspeed Pressure Transducer
 figure(1)
 plot(ABCD_Voltage,ABCD_Velocity_1)
-title('Pitot-Static + Airspeed Pressure Transducer')
+hold on
+title('Voltage vs. Velocity')
 xlabel('Voltage (V)')
 ylabel('Velocity (m/s)')
 
@@ -102,11 +103,10 @@ Ratio = 1/9.5;
 ABCD_Velocity_2 = sqrt(2.*ABCD_Airspeed_Diff_Pressure.*R.*ABCD_Temp_atm./(ABCD_Pressure_atm.*(1-(Ratio)^2)));
 
 % plot voltage vs. velocity for Venturi tube + Water manometer
-figure(2)
 plot(ABCD_Voltage,ABCD_Velocity_2)
-title('Venturi Tube + Water Manometer')
-xlabel('Voltage (V)')
-ylabel('Velocity (m/s)')
+% title('Venturi Tube + Water Manometer')
+% xlabel('Voltage (V)')
+% ylabel('Velocity (m/s)')
 
 
 % Part 2
@@ -193,19 +193,21 @@ end
 EFGH_Velocity_1 = sqrt(2.*EFGH_Airspeed_Diff_Pressure*R.*EFGH_Temp_atm./EFGH_Pressure_atm);
 
 % plot voltage vs. velocity for pitot-static + Water Manometer
-figure(3)
+% figure(3)
 plot(EFGH_Voltage,EFGH_Velocity_1)
-title('Pitot-Static + Water Manometer')
-xlabel('Voltage (V)')
-ylabel('Velocity (m/s)')
+% title('Pitot-Static + Water Manometer')
+% xlabel('Voltage (V)')
+% ylabel('Velocity (m/s)')
 
 % calculate velocity for Venturi tube + Airspeed Pressure Transducer
 Ratio = 1/9.5;
 EFGH_Velocity_2 = sqrt(2.*EFGH_Airspeed_Diff_Pressure.*R.*EFGH_Temp_atm./(EFGH_Pressure_atm.*(1-(Ratio)^2)));
 
 % plot voltage vs. velocity for Venturi tube + Airspeed Pressure Transducer
-figure(4)
+% figure(4)
 plot(EFGH_Voltage,EFGH_Velocity_2)
-title('Venturi Tube + Airspeed Pressure Transducer')
-xlabel('Voltage (V)')
-ylabel('Velocity (m/s)')
+% title('Venturi Tube + Airspeed Pressure Transducer')
+% xlabel('Voltage (V)')
+% ylabel('Velocity (m/s)')
+legend('Pitot-Static + Airspeed Pressure Transducer', 'Venturi Tube + Water Manometer', 'Pitot-Static + Water Manometer', 'Venturi Tube + Airspeed Pressure Transducer')
+hold off
