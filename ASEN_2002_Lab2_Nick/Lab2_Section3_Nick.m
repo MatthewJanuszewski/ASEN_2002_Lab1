@@ -418,8 +418,12 @@ Cp_location(15,2) = 0.0014*0.0254;
 Cp_location(16,2) = 0.0175*0.0254;
 Cp_location(17,2) = 0.03885*0.0254;
 
+c = 0.08897800263; % Chord length (in meters)
+
 % Normalize Cp_location:
-Cp_location_norm = normalize(Cp_location);
+Cp_location_norm = (Cp_location/c);
+
+
 
 % Finding Cp for each port for each configuration
 for i = 1:96
@@ -441,15 +445,21 @@ for i = 1:96
     Cp(16,i) = Pressure_Port_19(i)/(q_infinity(i));
     Cp(17,i) = Pressure_Port_20(i)/(q_infinity(i));
     
-    Cp_norm = normalize(Cp);
+    Cp_norm = (Cp/3.158);
     
-    % Plotting Cp for each of 96 configurations
-%     f = figure(i);
-%     plot(Cp_location_norm(:,1),Cp_norm(:,i));
-%     f.CurrentAxes.YDir = 'Reverse';
+   
 end
+f = figure(1);
+hold on
+ % Plotting Cp for each of 96 configurations
+    for i = [30 90 57 24]
+     plot(Cp_location_norm(:,1),Cp_norm(:,i));
+     f.CurrentAxes.YDir = 'Reverse';
+     legend('-5','0','5','10')
+    end
+hold off
 
-c = 0.08897800263; % Chord length (in meters)
+
 
 for i = 1:96
     for j = 2:17
@@ -657,7 +667,7 @@ end
 NACA_Cl = [-8 -0.12; -4 0.18; 0 0.48; 4 0.78; 8 1.08; 12 1.3; 16 1.52; 20 1.58; 24 1.45; 28 1.28];
 NACA_Cd = [-8 0.015; -4 0.015; 0 0.02; 4 0.04; 8 0.08; 12 0.12; 16 0.17; 20 0.24; 24 0.36; 28 0.46];
 
-figure(1);
+figure(2);
 plot(AOA_9a,CL_9a)
 hold on
 plot(AOA_17a,CL_17a)
@@ -669,7 +679,7 @@ ylabel('Coefficient of Lift')
 legend('9 m/s','17 m/s', '34 m/s','NACA Data')
 hold off
 
-figure(2);
+figure(3);
 plot(AOA_9a,CD_9a)
 hold on
 plot(AOA_17a,CD_17a)
