@@ -452,10 +452,10 @@ end
 f = figure(1);
 hold on
  % Plotting Cp for each of 96 configurations
-    for i = [30 90 57 24]
+    for i = [30 90 57 24 48]
      plot(Cp_location_norm(:,1),Cp_norm(:,i));
      f.CurrentAxes.YDir = 'Reverse';
-     legend('-5','0','5','10')
+     legend('-5','0','5','10','12')
     end
 hold off
 
